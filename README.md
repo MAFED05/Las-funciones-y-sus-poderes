@@ -160,9 +160,51 @@ if __name__ == "__main__":  #Función principal
 Realice pruebas para calcular fibonacci con iteración o con recursión. Determine desde que número de la serie la diferencia de tiempo se vuelve significativa.
 
 ``` python
+import timeit #Se importa la libreria a ser utilizada
+
+def fibo(n : int )-> int: #Se define la función base
+  i : int = 1
+  # Caso base
+  n1 : int = 0
+  n2 : int = 1
+  while(i <= n):
+    # Condición
+    sumFibo = n1 + n2
+    # Actualización
+    n1 = n2
+    n2 = sumFibo
+    i += 1
+  return sumFibo #Retorna el resultado
+
+if __name__ == "__main__": #Función principal
+  num = int(input("Ingrese numero: ")) #Solicitamos el dato necesario   
+  start_time1 = timeit.default_timer() #Sew inicia a contar el tiempo de ejecución
+  serieFibo = fibo(num)
+  timer1= timeit.default_timer() - start_time1 #Se finaliza de contar el tiempo de ejecución
+  print(f"El último número de la serie de Fibonacci hasta {num} es {serieFibo}") #Se imprimen los resultados
+print(f"fibo se demoró {timer1} en correr")
+
+
+def fiboRecursivo(n : int )-> int: #Se define la función del caso recursivo
+    if n <=1:
+        # Caso base
+        return 1
+    else:
+        # Condición
+        return fiboRecursivo(n-1)+fiboRecursivo(n-2)  #Retorna el resultado
+    
+if __name__ == "__main__": #Función principal 
+  num = int(input("Ingrese numero: ")) #Solicitamos los datos necesarios
+  start_time2 = timeit.default_timer() #Se inicia a contabilizar el tiempo
+  serieFibo = fiboRecursivo(num)
+  timer2 = timeit.default_timer() - start_time2 #Se detiene el contador
+  print(f"El último número de la serie de Fibonacci hasta {num} es {serieFibo}") #Se imprimen los resultados
+print(f"fiboRecursivo se demoró {timer2} en correr")
 ```
 
 #### Código funcionando
+
+[![Captura-de-pantalla-2023-05-12-113253.png](https://i.postimg.cc/xjpRMR6H/Captura-de-pantalla-2023-05-12-113253.png)](https://postimg.cc/6TRnNdJ5)
 
 ## Punto 5
 
